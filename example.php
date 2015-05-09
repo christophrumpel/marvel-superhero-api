@@ -3,6 +3,7 @@
 use Rumpel\MarvelUniverse;
 require 'vendor/autoload.php';
 
+// Get an Marvel account and your keys here https://developer.marvel.com/
 $publicKey = "your_public_key";
 $privateKey = "your_private_key";
 
