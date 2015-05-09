@@ -7,20 +7,22 @@ This is a helper package for working with the [Marvel developer API](https://dev
 
 # Examples
 
-    // Get an Marvel account and your keys here https://developer.marvel.com/
-    $publicKey = "your_public_key";
-    $privateKey = "your_private_key";
-    
-    $api = new MarvelUniverse\SuperheroApi($publicKey, $privateKey);
-    
-    // Get all characters
-    $characters = $api->getAllCharacters(5, 7);
-    
-    // Get 3-D Man
-    $threedman = $api->getCharacterById(1011334);
-    
-    // Get comics from 3-D Man
-    $comics = $api->getCharacterComics(1011334, ['format' => 'comic']);
+```php
+// Get an Marvel account and your keys here https://developer.marvel.com/
+$publicKey = "your_public_key";
+$privateKey = "your_private_key";
+
+$api = new MarvelUniverse\SuperheroApi($publicKey, $privateKey);
+
+// Get all characters
+$characters = $api->getAllCharacters(5, 7);
+
+// Get 3-D Man
+$threedman = $api->getCharacterById(1011334);
+
+// Get comics from 3-D Man
+$comics = $api->getCharacterComics(1011334, ['format' => 'comic']);
+```
 
 # Support
 
