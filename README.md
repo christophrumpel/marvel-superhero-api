@@ -12,3 +12,12 @@ Find examples in example.php. Meanwhile supported:
 * get all characters
 * get character by ID
 
+# Roadmap
+
+I am going to implement more of the API like
+
+* get from speciifc character comic
+* get from speciifc character events
+* get from speciifc character series
+* get from speciifc character stories 
+
