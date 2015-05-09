@@ -36,17 +36,17 @@ $series = $api->getCharacterSeries(1011334);
 $stories = $api->getCharacterStories(1011334);
 ```
 
-# Support
+# Covered
 
-* get all characters
-* get character by ID
+* All character calls
 
 # Roadmap
 
-I am going to implement more of the API like
+More to come: 
 
-* get from speciifc character comic
-* get from speciifc character events
-* get from speciifc character series
-* get from speciifc character stories 
+* Comics calls
+* Creators calls
+* Events calls
+* Series calls
+* Stories calls
 
