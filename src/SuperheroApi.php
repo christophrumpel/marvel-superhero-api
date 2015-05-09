@@ -91,11 +91,81 @@ class SuperheroApi
      * @param array $filterAttributes
      * @return mixed|string
      */
-    public function getCharacterComics($characterId, array $filterAttributes = []) {
+    public function getCharacterComics($characterId, array $filterAttributes = [])
+    {
         $filters = ['query' => [$filterAttributes]];
 
         try {
             $result = $this->client->get('characters/' . $characterId . '/comics', $filters);
+        } catch (RequestException $e) {
+            $return['request'] = $e->getRequest() . "\n";
+            if ($e->hasResponse()) {
+                return $return['response'] = $e->getResponse() . "\n";
+
+            }
+        }
+
+        return $result->json();
+    }
+
+    /**
+     * Get from a specific character all events
+     * @param $characterId
+     * @param array $filterAttributes
+     * @return mixed|string
+     */
+    public function getCharacterEvents($characterId, array $filterAttributes = [])
+    {
+        $filters = ['query' => [$filterAttributes]];
+
+        try {
+            $result = $this->client->get('characters/' . $characterId . '/events', $filters);
+        } catch (RequestException $e) {
+            $return['request'] = $e->getRequest() . "\n";
+            if ($e->hasResponse()) {
+                return $return['response'] = $e->getResponse() . "\n";
+
+            }
+        }
+
+        return $result->json();
+    }
+
+    /**
+     * Get from a specific character all series
+     * @param $characterId
+     * @param array $filterAttributes
+     * @return mixed|string
+     */
+    public function getCharacterSeries($characterId, array $filterAttributes = [])
+    {
+        $filters = ['query' => [$filterAttributes]];
+
+        try {
+            $result = $this->client->get('characters/' . $characterId . '/series', $filters);
+        } catch (RequestException $e) {
+            $return['request'] = $e->getRequest() . "\n";
+            if ($e->hasResponse()) {
+                return $return['response'] = $e->getResponse() . "\n";
+
+            }
+        }
+
+        return $result->json();
+    }
+
+    /**
+     * Get from a specific character all stories
+     * @param $characterId
+     * @param array $filterAttributes
+     * @return mixed|string
+     */
+    public function getCharacterStories($characterId, array $filterAttributes = [])
+    {
+        $filters = ['query' => [$filterAttributes]];
+
+        try {
+            $result = $this->client->get('characters/' . $characterId . '/stories', $filters);
         } catch (RequestException $e) {
             $return['request'] = $e->getRequest() . "\n";
             if ($e->hasResponse()) {

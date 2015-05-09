@@ -18,3 +18,14 @@ $threedman = $api->getCharacterById(1011334);
 // Get comics from 3-D Man
 $comics = $api->getCharacterComics(1011334, ['format' => 'comic']);
 
+// Get comics from 3-D Man
+$comics = $api->getCharacterComics(1011334, ['format' => 'comic']);
+
+// Get events from 3-D Man
+$events = $api->getCharacterEvents(1011334);
+
+// Get series from 3-D Man
+$series = $api->getCharacterSeries(1011334);
+
+// Get stories from 3-D Man
+$stories = $api->getCharacterStories(1011334);
