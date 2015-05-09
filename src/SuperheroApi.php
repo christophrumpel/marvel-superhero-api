@@ -49,11 +49,7 @@ class SuperheroApi
      */
     public function getAllCharacters(array $filterAttributes = [])
     {
-        $filters = [
-            'query' => [
-                $filterAttributes
-            ]
-        ];
+        $filters = ['query' => [$filterAttributes]];
 
         try {
             $result = $this->client->get('characters', $filters);
@@ -71,13 +67,35 @@ class SuperheroApi
 
     /**
      * Get a Marvel character by id
-     * @param $id
+     * @param $characterId
      * @return mixed|string
      */
-    public function getCharacterById($id)
+    public function getCharacterById($characterId)
     {
         try {
-            $result = $this->client->get('characters/' . $id);
+            $result = $this->client->get('characters/' . $characterId);
+        } catch (RequestException $e) {
+            $return['request'] = $e->getRequest() . "\n";
+            if ($e->hasResponse()) {
+                return $return['response'] = $e->getResponse() . "\n";
+
+            }
+        }
+
+        return $result->json();
+    }
+
+    /**
+     * Get from a specific character all comics
+     * @param $characterId
+     * @param array $filterAttributes
+     * @return mixed|string
+     */
+    public function getCharacterComics($characterId, array $filterAttributes = []) {
+        $filters = ['query' => [$filterAttributes]];
+
+        try {
+            $result = $this->client->get('characters/' . $characterId . '/comics', $filters);
         } catch (RequestException $e) {
             $return['request'] = $e->getRequest() . "\n";
             if ($e->hasResponse()) {

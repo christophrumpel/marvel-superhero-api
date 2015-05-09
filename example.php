@@ -15,3 +15,6 @@ $characters = $api->getAllCharacters(5, 7);
 // Get 3-D Man
 $threedman = $api->getCharacterById(1011334);
 
+// Get comics from 3-D Man
+$comics = $api->getCharacterComics(1011334, ['format' => 'comic']);
+
