@@ -69,6 +69,11 @@ class SuperheroApi
 
     }
 
+    /**
+     * Get a Marvel character by id
+     * @param $id
+     * @return mixed|string
+     */
     public function getCharacterById($id)
     {
         try {
