@@ -44,20 +44,16 @@ class SuperheroApi
 
     /**
      * Get all Marvel characters
-     * @param int $offset
-     * @param int $limit
+     * @param array $filterAttributes
      * @return mixed
      */
-    public function getAllCharacters($offset = 0, $limit = 0)
+    public function getAllCharacters(array $filterAttributes = [])
     {
         $filters = [
             'query' => [
-                'offset' => $offset,
+                $filterAttributes
             ]
         ];
-
-        if($limit > 0)
-            $filters['query']['limit'] = $limit;
 
         try {
             $result = $this->client->get('characters', $filters);
