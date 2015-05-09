@@ -1,6 +1,6 @@
 {
     "name": "christophrumpel/marvel-superhero-api",
-    "description": "This is a PHP package for working with the Marvel developer API",
+    "description": "This is a PHP package for working with the Marvel developer API.",
     "keywords": [
         "christophrumpel",
         "marvel-superheor-api"
