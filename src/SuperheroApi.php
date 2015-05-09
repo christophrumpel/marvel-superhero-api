@@ -50,13 +50,17 @@ class SuperheroApi
      */
     public function getAllCharacters($offset = 0, $limit = 0)
     {
+        $filters = [
+            'query' => [
+                'offset' => $offset,
+            ]
+        ];
+
+        if($limit > 0)
+            $filters['query']['limit'] = $limit;
+
         try {
-            $result = $this->client->get('characters', [
-                'query' => [
-                    'limit' => $limit,
-                    'offset' => $offset
-                ]
-            ]);
+            $result = $this->client->get('characters', $filters);
         } catch (RequestException $e) {
             $return['request'] = $e->getRequest() . "\n";
             if ($e->hasResponse()) {
