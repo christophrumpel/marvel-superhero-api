@@ -25,16 +25,18 @@ class SuperheroApi
      */
     private $client;
 
-    public function __construct()
+    public function __construct($publicKey, $privateKey)
     {
+        $ts = time();
+        $hash = md5($ts . $privateKey . $publicKey);
 
         $this->client = new Client([
             'base_url' => $this->baseUrl,
             'defaults' => [
                 'query' => [
-                    'ts'     => '1430784000',
-                    'apikey' => '7283d7028711352d134b46249d01c669',
-                    'hash'   => '5c72db93ff41b66087e8e6becbe1bdb3'
+                    'ts'     => $ts,
+                    'apikey' => $publicKey,
+                    'hash'   => $hash
                 ]
             ]
         ]);
