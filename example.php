@@ -10,22 +10,19 @@ $privateKey = "your_private_key";
 $api = new MarvelUniverse\SuperheroApi($publicKey, $privateKey);
 
 // Get all characters
-$characters = $api->getAllCharacters(5, 7);
+$characters = $api->characters()->getAll(['nameStartsWith' => 'Y']);
 
 // Get 3-D Man
-$threedman = $api->getCharacterById(1011334);
+$threedman = $api->characters()->getById(1011334);
 
 // Get comics from 3-D Man
-$comics = $api->getCharacterComics(1011334, ['format' => 'comic']);
-
-// Get comics from 3-D Man
-$comics = $api->getCharacterComics(1011334, ['format' => 'comic']);
+$comics = $api->characters()->getComics(1011334, ['format' => 'comic']);
 
 // Get events from 3-D Man
-$events = $api->getCharacterEvents(1011334);
+$events = $api->characters()->getEvents(1011334);
 
 // Get series from 3-D Man
-$series = $api->getCharacterSeries(1011334);
+$series = $api->characters()->getSeries(1011334);
 
 // Get stories from 3-D Man
-$stories = $api->getCharacterStories(1011334);
+$stories = $api->characters()->getStories(1011334);
