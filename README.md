@@ -42,8 +42,7 @@ $stories = $api->characters()->getStories(1011334);
 
 More to come: 
 
-* Creators calls
-* Events calls
-* Series calls
-* Stories calls
-
+- [] Creators calls
+- [] Events calls
+- [] Series calls
+- [] Stories calls
