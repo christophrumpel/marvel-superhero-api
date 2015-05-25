@@ -9,7 +9,7 @@ $privateKey = "your_private_key";
 
 $api = new MarvelUniverse\SuperheroApi($publicKey, $privateKey);
 
-// Get all characters
+// Get all characters with a filter
 $characters = $api->characters()->getAll(['nameStartsWith' => 'Y']);
 
 // Get 3-D Man
@@ -26,3 +26,18 @@ $series = $api->characters()->getSeries(1011334);
 
 // Get stories from 3-D Man
 $stories = $api->characters()->getStories(1011334);
+
+// Get all comics with a filter
+$comics = $api->comics()->getAll(['titleStartsWith' => 'The ']);
+
+// Get all characters from a comic
+$comicCharacters = $api->comics()->getCharacters(52531);
+
+// Get creators of a comic
+$comicCreators = $api->comics()->getCreators(52531);
+
+// Get comic events
+$comicEvents = $api->comics()->getEvents(52531);
+
+// Get comic stories
+$comicStories = $api->comics()->getStories(52531);

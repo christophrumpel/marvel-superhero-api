@@ -48,14 +48,18 @@ class SuperheroApi
                 ]
             ]
         ]);
+
         $this->character = new Character($this->client);
+        $this->comic = new Comic($this->client);
     }
 
-    public function characters() {
+    public function characters()
+    {
         return $this->character;
     }
 
-    public function comics() {
+    public function comics()
+    {
         return $this->comic;
     }
 

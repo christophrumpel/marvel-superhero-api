@@ -3,8 +3,9 @@ namespace Rumpel\MarvelUniverse;
 
 use GuzzleHttp\Client;
 
-class Character extends AbstractSuperHeroApi
+class Comic extends AbstractSuperHeroApi
 {
+
     /**
      * @var Client
      */
@@ -18,21 +19,21 @@ class Character extends AbstractSuperHeroApi
     public function __construct(Client $client)
     {
         parent::__construct($client);
-        $this->slug = 'characters';
+        $this->slug = 'comics';
     }
 
     /**
      * Get from a specific character all comics
-     * @param $characterId
+     * @param $comicId
      * @param array $filterAttributes
      * @return mixed|string
      */
-    public function getComics($characterId, array $filterAttributes = [])
+    public function getCharacters($comicId, array $filterAttributes = [])
     {
         $filters = ['query' => [$filterAttributes]];
 
         try {
-            $result = $this->client->get('characters/' . $characterId . '/comics', $filters);
+            $result = $this->client->get($this->slug . '/' . $comicId . '/characters', $filters);
         } catch (RequestException $e) {
             $return['request'] = $e->getRequest() . "\n";
             if ($e->hasResponse()) {
@@ -45,17 +46,17 @@ class Character extends AbstractSuperHeroApi
     }
 
     /**
-     * Get from a specific character all events
-     * @param $characterId
+     * Get from a specific character all comics
+     * @param $comicId
      * @param array $filterAttributes
      * @return mixed|string
      */
-    public function getEvents($characterId, array $filterAttributes = [])
+    public function getCreators($comicId, array $filterAttributes = [])
     {
         $filters = ['query' => [$filterAttributes]];
 
         try {
-            $result = $this->client->get('characters/' . $characterId . '/events', $filters);
+            $result = $this->client->get($this->slug . '/' . $comicId . '/creators', $filters);
         } catch (RequestException $e) {
             $return['request'] = $e->getRequest() . "\n";
             if ($e->hasResponse()) {
@@ -68,17 +69,17 @@ class Character extends AbstractSuperHeroApi
     }
 
     /**
-     * Get from a specific character all series
-     * @param $characterId
+     * Get from a specific comic all events
+     * @param $comicId
      * @param array $filterAttributes
      * @return mixed|string
      */
-    public function getSeries($characterId, array $filterAttributes = [])
+    public function getEvents($comicId, array $filterAttributes = [])
     {
         $filters = ['query' => [$filterAttributes]];
 
         try {
-            $result = $this->client->get('characters/' . $characterId . '/series', $filters);
+            $result = $this->client->get($this->slug . '/' . $comicId . '/events', $filters);
         } catch (RequestException $e) {
             $return['request'] = $e->getRequest() . "\n";
             if ($e->hasResponse()) {
@@ -91,17 +92,17 @@ class Character extends AbstractSuperHeroApi
     }
 
     /**
-     * Get from a specific character all stories
-     * @param $characterId
+     * Get from a specific comic all stories
+     * @param $comicId
      * @param array $filterAttributes
      * @return mixed|string
      */
-    public function getStories($characterId, array $filterAttributes = [])
+    public function getStories($comicId, array $filterAttributes = [])
     {
         $filters = ['query' => [$filterAttributes]];
 
         try {
-            $result = $this->client->get('characters/' . $characterId . '/stories', $filters);
+            $result = $this->client->get($this->slug . '/' . $comicId . '/stories', $filters);
         } catch (RequestException $e) {
             $return['request'] = $e->getRequest() . "\n";
             if ($e->hasResponse()) {

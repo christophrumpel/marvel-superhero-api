@@ -35,13 +35,13 @@ $stories = $api->characters()->getStories(1011334);
 
 # Covered
 
-* All character calls
+- [x] All character calls
+- [x] All comic calls
 
 # Roadmap
 
 More to come: 
 
-* Comics calls
 * Creators calls
 * Events calls
 * Series calls
