@@ -31,6 +31,8 @@ $series = $api->characters()->getSeries(1011334);
 
 // Get stories from 3-D Man
 $stories = $api->characters()->getStories(1011334);
+
+// For more examples checkout the example.php file
 ```
 
 # Covered
